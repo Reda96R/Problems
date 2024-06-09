@@ -1,0 +1,26 @@
+#include <iostream>
+#include <vector>
+
+bool hasDuplicate(std::vector<int>& nums){
+	std::vector<int> tmp;
+	for (size_t i = 0; i < nums.size(); ++i){
+		for (size_t j = 0; j < tmp.size(); ++j){
+			if (tmp.at(j) == nums[i])
+				return (true);
+		}
+		tmp.push_back(nums[i]);
+	}
+	return (false);
+}
+
+// int	main(){
+// 	std::vector<int> vct;
+// 	vct.push_back(0);
+// 	vct.push_back(1);
+// 	vct.push_back(3);
+// 	vct.push_back(3);
+// 	if (hasDuplicate(vct))
+// 		std::cout << "true" << std::endl;
+// 	else
+// 		std::cout << "false" << std::endl;
+// }
