@@ -1,14 +1,15 @@
 #include <iostream>
 #include <vector>
+#include <unordered_set>
 
 bool hasDuplicate(std::vector<int>& nums){
-	std::vector<int> tmp;
+
+	std::unordered_set<int> tmp;
+
 	for (size_t i = 0; i < nums.size(); ++i){
-		for (size_t j = 0; j < tmp.size(); ++j){
-			if (tmp.at(j) == nums[i])
-				return (true);
-		}
-		tmp.push_back(nums[i]);
+		if (tmp.find(nums[i]) != tmp.end())
+			return (true);
+		tmp.insert(nums[i]);
 	}
 	return (false);
 }
